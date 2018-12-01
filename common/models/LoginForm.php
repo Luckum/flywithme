@@ -22,12 +22,10 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            // username and password are both required
             [['username', 'password'], 'required'],
-            // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
-            // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'validatePassword', 'except' => 'adminLogin'],
+            ['password', 'validateAdminPassword', 'on' => 'adminLogin'],
         ];
     }
 
@@ -47,6 +45,16 @@ class LoginForm extends Model
             }
         }
     }
+    
+    public function validateAdminPassword($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getAdmin();
+            if (!$user || !$user->validatePassword($this->password)) {
+                $this->addError($attribute, 'Incorrect username or password.');
+            }
+        }
+    }
 
     /**
      * Logs in a user using the provided username and password.
@@ -61,6 +69,15 @@ class LoginForm extends Model
         
         return false;
     }
+    
+    public function loginAdmin()
+    {
+        if ($this->validate()) {
+            return Yii::$app->user->login($this->getAdmin(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+        }
+        
+        return false;
+    }
 
     /**
      * Finds user by [[username]]
@@ -71,6 +88,15 @@ class LoginForm extends Model
     {
         if ($this->_user === null) {
             $this->_user = User::findByUsername($this->username);
+        }
+
+        return $this->_user;
+    }
+    
+    protected function getAdmin()
+    {
+        if ($this->_user === null) {
+            $this->_user = User::findByUsernameRole($this->username, User::ROLE_ADMIN);
         }
 
         return $this->_user;

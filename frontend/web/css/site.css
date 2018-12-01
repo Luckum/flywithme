@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: 'Ubuntu',Arial,Helvetica,sans-serif;
 }
 
 .wrap {
@@ -117,4 +118,290 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+/*customs*/
+.footer-content, .search-frm-container, .header-logo-container, .header-menu-container {
+	width: 1120px;
+	margin: 0 auto;
+}
+.header-wide-container {
+	width: 100%;
+	height: 525px;
+	background: url(../images/header.jpg);
+	background-size: 100% 525px;
+	position: relative;
+}
+.header-menu-container {
+	height: 40px;
+	line-height: 40px;
+}
+.header-menu-list {
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+   overflow: hidden;
+}
+.header-menu-list .header-menu-separator {
+	padding: 0;
+}
+.header-menu-list .header-menu-separator > span {
+	border-right: 1px dotted #fff;
+}
+.header-menu-list > li {
+	display: inline-block;
+	color: #fff;
+	padding: 0 10px;
+	list-style: none;
+}
+.footer-container {
+	width: 100%;
+	height: 250px;
+	background: url(../images/footer.jpg);
+	background-size: cover;
+}
+.footer-wide-container {
+	background: rgba(0, 0, 0, 0.8);
+	height: 250px;
+}
+.header-logo-container {
+	height: 70px;
+	border-bottom: 1px dashed rgba(255,255,255,0.4);
+}
+.search-frm-title {
+	padding-top: 40px;
+	color: #fff;
+}
+.search-frm-title > h1 {
+	font-size: 21px;
+	font-weight: 600;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+.search-frm-content {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 75%;
+	border-radius: 5px;
+	background: rgba(0,0,0,0.6);
+}
+.srch-frm-value-country, .srch-frm-value-airport {
+	color: #999;
+}
+.srch-frm-value-airport {
+	font-size: 11px;
+}
+.tt-menu .tt-suggestion.tt-cursor, .tt-menu .tt-suggestion.tt-selectable:hover {
+	cursor: pointer !important;
+	background-color: #e8e8e8 !important;
+}
+.hasDatepicker {
+	cursor: pointer;
+}
+.ui-widget-content {
+	z-index: 2 !important;
+	width: auto !important;
+	margin-top: 5px;
+	padding-left: 0;
+	padding-right: 0;
+	box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+.ui-datepicker-current {
+	display: none;
+}
+.search-frm-content .form-control-feedback {
+	right: 15px;
+	border-left: 1px solid #ebe9ce;
+	color: #666;
+}
+.ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: 'Ubuntu',Arial,Helvetica,sans-serif;	
+}
+.ui-widget-header {
+	background: none;
+	border: none;
+}
+.ui-state-hover {
+	cursor: pointer;
+}
+.ui-state-default {
+	width: 40px;
+	height: 40px;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+	text-align: center;
+	padding-top: 8px;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+	border: 1px solid #d3d3d3;
+	background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+	color: #555;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	margin-right: 18px;
+	height: auto;
+}
+.ui-datepicker-group-first {
+	padding-left: 20px;
+	padding-right: 15px;
+}
+.ui-datepicker-group-last {
+	padding-left: 15px;
+	padding-right: 20px;
+}
+
+.passengers-detail-cnt {
+	cursor: pointer;
+}
+.passengers-detail-options {
+	background-color: #fff;
+	margin-top: 5px;
+	border-radius: 4px;
+	display: none;
+	position: absolute;
+	width: 85%;
+	box-shadow: 0 0 6px rgba(0,0,0,0.4);
+	z-index: 2;
+}
+.passengers-detail-options ul {
+	list-style: none;
+}
+.passengers-detail-age-group {
+	display: inline-table;
+	width: 100%;
+	padding-left: 12px;
+}
+.passengers-detail-age-group li {
+	display: table-row;
+}
+.passengers-detail-age-group .passengers-detail-age-name,
+.passengers-detail-age-group .passengers-detail-age-value {
+	width: 50%;
+	display: table-cell;
+	height: 40px;
+	vertical-align: middle;
+}
+.passengers-detail-age-group .passengers-detail-age-value .age-value-dec,
+.passengers-detail-age-group .passengers-detail-age-value .age-value-val,
+.passengers-detail-age-group .passengers-detail-age-value .age-value-inc {
+	display: inline-block;
+}
+.passengers-detail-age-group .passengers-detail-age-value .age-value-dec,
+.passengers-detail-age-group .passengers-detail-age-value .age-value-inc {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.passengers-detail-age-group .passengers-detail-age-value .age-value-dec:hover,
+.passengers-detail-age-group .passengers-detail-age-value .age-value-inc:hover {
+	background-color: #e0e0e0;
+}
+.passengers-detail-age-group .passengers-detail-age-value .age-value-val {
+	width: 30%;
+	text-align: center;
+	line-height: 1.4;
+}
+.passengers-detail-age-group .passengers-detail-age-value {
+	text-align: center;
+}
+.passengers-detail-options .message {
+	padding-left: 12px;
+	padding-bottom: 12px;
+	display: none;
+}
+.passengers-detail-options .message span {
+	font-size: 12px;
+	color: #3398d9;
+	font-weight: 400;
+}
+
+.search-frm-close-btn {
+	border-radius: 4px;
+	background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+	border: 1px solid #d3d3d3;
+	color: #555;
+	margin-bottom: 0.4em;
+	width: auto;
+	height: auto;
+	font-weight: bold;
+	padding: .2em .6em .3em .6em;
+}
+.search-frm-close-btn:hover {
+	border: 1px solid #999;
+	background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+	color: #212121;
+}
+
+.passengers-detail-options .passengers-detail-footer {
+	border-top: 1px solid #aaa;
+	padding-top: 0.5em;
+	padding-right: 18px;
+}
+.search-frm-content .trip-class {
+	cursor: pointer;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+.search-frm-content .trip-class:focus {
+	outline: none;
+	box-shadow: none;
+	border: solid 1px #ccc;
+}
+.search-frm-content .rail-select {
+	position: absolute;
+	width: 50%;
+}
+.search-frm-content .rail-select .select-side:before {
+	border-left: solid 1px #ebe9ce;
+	content : "";
+	position: absolute;
+	left    : 0;
+	bottom  : 0;
+	height  : 100%;
+	width   : 1px;
+}
+.search-frm-content .rail-select .select-side {
+	width: 34px;
+	position: absolute;
+	top: 0px;
+	background-color: #fff;
+	height: 100%;
+	right: 0;
+	border-radius: 0px 3px 3px 0px;
+	border-right: solid 1px #ebe9ce;
+	border-top: solid 1px #ebe9ce;
+	border-bottom: solid 1px #ebe9ce;
+	pointer-events: none;
+	color: #666;
+}
+.search-frm-content .rail-select .select-side i {
+	top: 8px;
+	left: 11px;
+}
+.search-frm-content .btn-search {
+	border-radius: 20px;
+	width: 50%;
+	font-size: 16px;
+}
+.search-frm-content .fly-types-switcher {
+	display: table;
+	list-style: none;
+	border-spacing: 20px 0;
+	padding: 0;
+	margin: 0;
+	margin-left: -5px;
+}
+.search-frm-content .fly-types-switcher .fly-types-switcher-tab {
+	display: table-cell;
+	cursor: pointer;
+	color: rgba(255,255,255,0.5);
+}
+.search-frm-content .fly-types-switcher .fly-types-switcher-tab.active {
+	color: #fff;
+}
+.search-frm-content .fly-types-switcher .fly-types-switcher-tab:not(.active):hover {
+	text-decoration: underline;
 }

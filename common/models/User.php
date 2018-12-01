@@ -25,7 +25,9 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
+    
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'administrator';
 
     /**
      * {@inheritdoc}
@@ -81,6 +83,11 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+    
+    public static function findByUsernameRole($username, $role)
+    {
+        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE, 'role' => $role]);
     }
 
     /**

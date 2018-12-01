@@ -12,6 +12,7 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'homeUrl' => '/',
+    'sourceLanguage' => 'en-US',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',

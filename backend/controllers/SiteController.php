@@ -2,7 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\web\Controller;
+
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
@@ -10,7 +10,7 @@ use common\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -74,13 +74,13 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        $model = new LoginForm(['scenario' => 'adminLogin']);
+        if ($model->load(Yii::$app->request->post()) && $model->loginAdmin()) {
             return $this->goBack();
         } else {
             $model->password = '';
 
-            return $this->render('login', [
+            return $this->renderPartial('login', [
                 'model' => $model,
             ]);
         }
