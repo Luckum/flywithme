@@ -43,6 +43,12 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'about' => 'page/about',
+                'terms-and-conditions' => 'page/terms-and-conditions',
+                'privacy-policy' => 'page/privacy-policy',
+                'contract' => 'page/contract',
+                'contacts' => 'page/contacts',
+                'advantages' => 'page/advantages',
             ],
         ],
     ],

@@ -26,6 +26,17 @@ $script = <<<JS
                 })
                 .on("change", function () {
                     to.datepicker("option", "minDate", getDate(this));
+                    if ($(this).val().length > 0 && $(this).hasClass("error")) {
+                        $(this).removeClass("error");
+                        $(this).css({"border": "1px solid #ccc"});
+                        var obj = $("#date-from").parent().find(".search-frm-error");
+                        $(obj).hide();
+                    } else if ($(this).val().length == 0) {
+                        $(this).addClass("error");
+                        $(this).css({"border": "1px solid #f01c3d"});
+                        var obj = $("#date-from").parent().find(".search-frm-error");
+                        $(obj).show();
+                    }
                 })
                 
             to = $("#date-to")
@@ -40,6 +51,17 @@ $script = <<<JS
                 })
                 .on("change", function () {
                     from.datepicker("option", "maxDate", getDate(this));
+                    if ($(this).val().length > 0 && $(this).hasClass("error")) {
+                        $(this).removeClass("error");
+                        $(this).css({"border": "1px solid #ccc"});
+                        var obj = $("#date-to").parent().find(".search-frm-error");
+                        $(obj).hide();
+                    } else if ($(this).val().length == 0) {
+                        $(this).addClass("error");
+                        $(this).css({"border": "1px solid #f01c3d"});
+                        var obj = $("#date-to").parent().find(".search-frm-error");
+                        $(obj).show();
+                    }
                 });
         function getDate(element) {
             var date;
@@ -55,50 +77,29 @@ $script = <<<JS
 JS;
 $this->registerJs($script, $this::POS_END);
 ?>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 <div class="search-frm-title">
     <h1><?= Yii::t('app', 'Book now') ?></h1>
 </div>
-<div class="search-frm-content row">
+<div class="search-frm-content no-bbr-radius no-bbl-radius row">
     <ul class="fly-types-switcher">
         <li class="fly-types-switcher-tab active" data-type="return"><?= Yii::t('app', 'Return') ?>
         <li class="fly-types-switcher-tab" data-type="oneway"><?= Yii::t('app', 'One way') ?>
     </ul>
 </div>
-<div class="search-frm-content row">
+<div class="search-frm-content no-radius row">
     <div class="col-md-6">
         <?php
             echo Typeahead::widget([
-                'name' => 'srch_frm_from', 
+                'name' => 'srch_frm_from',
+                'id' => 'srch_frm_from',
                 'options' => ['placeholder' => Yii::t('app', 'From')],
                 'pluginOptions' => [
                     'minLength' => 3,
                     'highlight' => true,
                 ],
-                'dataset' => [
-                    [
-                        'datumTokenizer' => "Bloodhound.tokenizers.obj.whitespace('value')",
-                        'display' => 'city',
-                        'remote' => [
-                            'url' => Url::to(['search/place-list']) . '?q=%QUERY',
-                            'wildcard' => '%QUERY'
-                        ],
-                        'templates' => [
-                            'notFound' => '<div class="text-danger" style="padding:0 8px">Unable to find city or airport for selected query</div>',
-                            'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
-                        ]
-                    ]
-                ]
-            ]);
-        ?>
-    </div>
-    <div class="col-md-6">
-        <?php
-            echo Typeahead::widget([
-                'name' => 'srch_frm_to', 
-                'options' => ['placeholder' => Yii::t('app', 'To')],
-                'pluginOptions' => [
-                    'minLength' => 3,
-                    'highlight' => true,
+                'pluginEvents' => [
+                    'typeahead:select' => 'function(obj, item) {$("#srch_frm_from-hdn").val(item.code); }',
                 ],
                 'dataset' => [
                     [
@@ -116,19 +117,55 @@ $this->registerJs($script, $this::POS_END);
                 ]
             ]);
         ?>
+        <div class="search-frm-error"><?= Yii::t('app', 'Please enter a valid city') ?></div>
+        <input type="hidden" id="srch_frm_from-hdn" value="">
+    </div>
+    <div class="col-md-6">
+        <?php
+            echo Typeahead::widget([
+                'name' => 'srch_frm_to', 
+                'id' => 'srch_frm_to', 
+                'options' => ['placeholder' => Yii::t('app', 'To')],
+                'pluginOptions' => [
+                    'minLength' => 3,
+                    'highlight' => true,
+                ],
+                'pluginEvents' => [
+                    'typeahead:select' => 'function(obj, item) {$("#srch_frm_to-hdn").val(item.code); }',
+                ],
+                'dataset' => [
+                    [
+                        'datumTokenizer' => "Bloodhound.tokenizers.obj.whitespace('value')",
+                        'display' => 'city',
+                        'remote' => [
+                            'url' => Url::to(['search/place-list']) . '?q=%QUERY',
+                            'wildcard' => '%QUERY'
+                        ],
+                        'templates' => [
+                            'notFound' => '<div class="text-danger" style="padding:0 8px">Unable to find city or airport for selected query</div>',
+                            'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                        ]
+                    ]
+                ]
+            ]);
+        ?>
+        <div class="search-frm-error"><?= Yii::t('app', 'Please enter a valid city') ?></div>
+        <input type="hidden" id="srch_frm_to-hdn" value="">
     </div>
 </div>
-<div class="search-frm-content row">
+<div class="search-frm-content no-radius row">
     <div class="col-md-6 has-feedback">
         <input type="text" class="form-control" id="date-from" placeholder="<?= Yii::t('app', 'Departure') ?>">
         <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+        <div class="search-frm-error"><?= Yii::t('app', 'Please select a date') ?></div>
     </div>
     <div class="col-md-6 has-feedback" id="date-to-cnt">
         <input type="text" class="form-control" id="date-to" placeholder="<?= Yii::t('app', 'Return') ?>">
         <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+        <div class="search-frm-error"><?= Yii::t('app', 'Please select a date') ?></div>
     </div>
 </div>
-<div class="search-frm-content row">
+<div class="search-frm-content no-radius row">
     <div class="col-md-6 has-feedback">
         <div class="form-control passengers-detail-cnt"><span>1 <?= Yii::t('app', 'adult') ?></span></div>
         <div class="passengers-detail-options">
@@ -170,6 +207,9 @@ $this->registerJs($script, $this::POS_END);
             </div>
         </div>
         <span class="glyphicon glyphicon-chevron-down form-control-feedback"></span>
+        <input type="hidden" id="adults-cnt-hdn" value="1">
+        <input type="hidden" id="children-cnt-hdn" value="0">
+        <input type="hidden" id="infants-cnt-hdn" value="0">
     </div>
     <div class="col-md-6">
         <div class="rail-select">
@@ -183,7 +223,7 @@ $this->registerJs($script, $this::POS_END);
         </div>
     </div>
 </div>
-<div class="search-frm-content row">
+<div class="search-frm-content no-btr-radius no-btl-radius row">
     <div class="col-md-6">
         <button class="btn btn-info btn-search" id="submit-search-frm-btn"><?= Yii::t('app', 'Search flights') ?></button>
     </div>

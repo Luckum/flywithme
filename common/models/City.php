@@ -27,6 +27,8 @@ class City extends \yii\db\ActiveRecord
     public $city_name;
     public $country_name;
     public $airport_name;
+    public $airport_code;
+    public $city_code;
     
     /**
      * @inheritdoc

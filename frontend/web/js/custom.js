@@ -22,7 +22,77 @@ $(document).ready(function () {
         }
     });
     $("#submit-search-frm-btn").click(function () {
-        
+        var params = '';
+        var is_error = false;
+        if ($("#srch_frm_from").val() == '') {
+            var obj = $("#srch_frm_from").parent().parent().parent().find(".search-frm-error");
+            $(obj).show();
+            $("#srch_frm_from").addClass('error');
+            $("#srch_frm_from").css({border: "1px solid #f01c3d"});
+            is_error = true;
+        }
+        if ($("#srch_frm_to").val() == '') {
+            var obj = $("#srch_frm_to").parent().parent().parent().find(".search-frm-error");
+            $(obj).show();
+            $("#srch_frm_to").addClass('error');
+            $("#srch_frm_to").css({border: "1px solid #f01c3d"});
+            is_error = true;
+        }
+        if ($("#date-from").val() == '') {
+            var obj = $("#date-from").parent().find(".search-frm-error");
+            $(obj).show();
+            $("#date-from").addClass('error');
+            $("#date-from").css({border: "1px solid #f01c3d"});
+            is_error = true;
+        }
+        if ($("#date-to-cnt").is(':visible') && $("#date-to").val() == '') {
+            var obj = $("#date-to").parent().find(".search-frm-error");
+            $(obj).show();
+            $("#date-to").addClass('error');
+            $("#date-to").css({border: "1px solid #f01c3d"});
+            is_error = true;
+        }
+        if (!is_error) {
+            var date_from = $("#date-from").val().split('.'),
+                date_to = $("#date-to-cnt").is(':visible') ? $("#date-to").val().split('.') : '';
+            params += 'from=' + $("#srch_frm_from-hdn").val();
+            params += '&to=' + $("#srch_frm_to-hdn").val();
+            params += '&adults=' + $("#adults-cnt-hdn").val();
+            params += '&children=' + $("#children-cnt-hdn").val();
+            params += '&infants=' + $("#infants-cnt-hdn").val();
+            params += '&trip_class=' + $("#trip-class").val()
+            params += '&date_from=' + $.datepicker.formatDate('dd-mm-yy', new Date(date_from[1]));
+            if (date_to != '') {
+                params += '&date_to=' + $.datepicker.formatDate('dd-mm-yy', new Date(date_to[1]));
+            }
+            window.location.href = '/travel/search-results?' + params;
+        }
+    });
+    $("#srch_frm_from").on('input', function () {
+        if ($(this).val().length > 0 && $(this).hasClass("error")) {
+            $(this).removeClass("error");
+            $(this).css({"border": "1px solid #ccc"});
+            var obj = $("#srch_frm_from").parent().parent().parent().find(".search-frm-error");
+            $(obj).hide();
+        } else if ($(this).val().length == 0) {
+            $(this).addClass("error");
+            $(this).css({"border": "1px solid #f01c3d"});
+            var obj = $("#srch_frm_from").parent().parent().parent().find(".search-frm-error");
+            $(obj).show();
+        } 
+    });
+    $("#srch_frm_to").on('input', function () {
+        if ($(this).val().length > 0 && $(this).hasClass("error")) {
+            $(this).removeClass("error");
+            $(this).css({"border": "1px solid #ccc"});
+            var obj = $("#srch_frm_to").parent().parent().parent().find(".search-frm-error");
+            $(obj).hide();
+        } else if ($(this).val().length == 0) {
+            $(this).addClass("error");
+            $(this).css({"border": "1px solid #f01c3d"});
+            var obj = $("#srch_frm_to").parent().parent().parent().find(".search-frm-error");
+            $(obj).show();
+        } 
     });
 });
 
@@ -177,6 +247,9 @@ function set_passengers(obj, sign)
     }
     
     $(set_to_total).text(total_str);
+    $("#adults-cnt-hdn").val(adults);
+    $("#children-cnt-hdn").val(children);
+    $("#infants-cnt-hdn").val(infants);
 }
 
 function check_relations()

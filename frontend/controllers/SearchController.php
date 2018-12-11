@@ -18,7 +18,11 @@ class SearchController extends BaseController
             $lang = $lang_code[0];
             
             $results = City::find()
-                ->select('city.name_' . $lang . ' as city_name, country.name_' . $lang . ' as country_name, airport.name_' . $lang . ' as airport_name')
+                ->select('city.name_' . $lang . ' as city_name,
+                    country.name_' . $lang . ' as country_name,
+                    airport.name_' . $lang . ' as airport_name,
+                    airport.code as airport_code,
+                    city.code as city_code')
                 ->joinWith('airports')
                 ->joinWith('country')
                 ->where("city.name_$lang LIKE '$q%'")
@@ -36,12 +40,14 @@ class SearchController extends BaseController
                         $ret_f[0]['city'] = $res->city_name;
                         $ret_f[0]['country'] = $res->country_name;
                         $ret_f[0]['airport'] = 'All airports';
+                        $ret_f[0]['code'] = $res->city_code;
                         $k ++;
                     }
                     
                     $ret[$k]['city'] = $res->city_name;
                     $ret[$k]['country'] = $res->country_name;
                     $ret[$k]['airport'] = $res->airport_name;
+                    $ret[$k]['code'] = $res->airport_code;
                 }
                 
                 if (count($ret_f)) {

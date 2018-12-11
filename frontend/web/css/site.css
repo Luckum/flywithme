@@ -10,6 +10,9 @@ body {
     margin: 0 auto -60px;
     padding: 0 0 60px;
 }
+.main-wrap {
+	background-color: #f7f5f2;
+}
 
 .wrap > .container {
     padding: 70px 15px 20px;
@@ -132,9 +135,13 @@ a.desc:after {
 	background-size: 100% 525px;
 	position: relative;
 }
+.wide-container {
+	width: 100%;
+}
 .header-menu-container {
 	height: 40px;
 	line-height: 40px;
+	text-align: right;
 }
 .header-menu-list {
 	margin: 0;
@@ -154,6 +161,10 @@ a.desc:after {
 	padding: 0 10px;
 	list-style: none;
 }
+.header-menu-list > li .header-menu-icon {
+	margin-right: 7px;
+	font-size: 10px;
+}
 .footer-container {
 	width: 100%;
 	height: 250px;
@@ -171,6 +182,8 @@ a.desc:after {
 .search-frm-title {
 	padding-top: 40px;
 	color: #fff;
+	width: 75%;
+	margin: 0 auto;
 }
 .search-frm-title > h1 {
 	font-size: 21px;
@@ -183,6 +196,7 @@ a.desc:after {
 	width: 75%;
 	border-radius: 5px;
 	background: rgba(0,0,0,0.6);
+	margin: 0 auto;
 }
 .srch-frm-value-country, .srch-frm-value-airport {
 	color: #999;
@@ -404,4 +418,200 @@ a.desc:after {
 }
 .search-frm-content .fly-types-switcher .fly-types-switcher-tab:not(.active):hover {
 	text-decoration: underline;
+}
+.search-frm-content.no-btr-radius {
+	border-top-right-radius: 0;
+}
+.search-frm-content.no-btl-radius {
+	border-top-left-radius: 0;
+}
+.search-frm-content.no-bbr-radius {
+	border-bottom-right-radius: 0;
+}
+.search-frm-content.no-bbl-radius {
+	border-bottom-left-radius: 0;
+}
+.search-frm-content.no-radius {
+	border-radius: 0;
+}
+.search-frm-content .search-frm-error {
+	color: #f01c3d;
+	padding: 5px 0 0 5px;
+	display: none;
+}
+.header-wide-container-results {
+	background-color: #222;
+}
+.header-wide-container-results .header-logo-container {
+	border-bottom: 0;
+}
+.footer-content {
+	text-align: center;
+	padding: 40px 0;
+}
+.footer-content .footer-bottom-links {
+	padding: 30px 0 10px;
+	line-height: 20px;
+}
+.footer-bottom-links .footer-link:first-child {
+	padding-left: 0;
+	border-left: 0;
+}
+.footer-bottom-links .footer-link {
+	color: rgba(255,255,255,0.7);
+	font-size: 12px;
+	text-decoration: underline;
+	padding: 0 10px;
+	border-left: 1px solid #ccc;
+	display: inline-block;
+}
+.footer-bottom-links .footer-link:hover {
+	color: #fff;
+}
+.footer-content .footer-logo img {
+	height: 40px;
+}
+.footer-content .footer-copy {
+	color: rgba(255,255,255,0.6);
+	text-shadow: 0 0 2px rgba(0,0,0,0.4);
+	font-size: 11px;
+}
+
+.site-index .popular-searches,
+.site-index .latest-deals,
+.site-index .info {
+	text-align: center;
+}
+.site-index .popular-searches, .site-index .info {
+	padding: 45px 0;
+}
+.site-index .latest-deals {
+	background-color: #fff;
+	padding: 45px 0;
+}
+.site-index .popular-searches h2,
+.site-index .latest-deals h2 {
+	text-align: left;
+}
+.site-index .item-cnt {
+	width: 360px;
+	height: 250px;
+	border-radius: 4px;
+	background: #ccc;
+	box-shadow: rgba(0,0,0,0.2) 0 1px 1px 0;
+	display: inline-block;
+}
+.site-index .info .info-title {
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 15px;
+}
+.site-index .info .info-links {
+	margin-top: 10px;
+}
+.site-index .info .info-links a {
+	text-decoration: underline;
+	color: #5bc0de;
+	margin-left: 20px;
+}
+.site-index .info .info-links a:hover {
+	color: #31b0d5;
+}
+.search-results .tickets-item {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 3px 0 0 #ddd;
+	padding: 20px;
+	height: 150px;
+	margin-top: 15px;
+}
+.search-results .tickets-item .ticket-body,
+.search-results .tickets-item .ticket-links,
+.search-results .tickets-item .aviacompany-logo,
+.search-results .tickets-item .ticket-content,
+.search-results .tickets-item .ticket-info-from,
+.search-results .tickets-item .ticket-direct,
+.search-results .tickets-item .ticket-info-to {
+	display: inline-block;
+}
+.search-results .tickets-item .aviacompany-logo {
+	margin-right: 10px;
+}
+.search-results .tickets-item .ticket-info-from {
+	margin-right: 15px;
+}
+.search-results .tickets-item .ticket-info-to {
+	margin-left: 15px;
+}
+.search-results .tickets-item .aviacompany-logo,
+.search-results .tickets-item .ticket-direct {
+	vertical-align: top;
+}
+.search-results .tickets-item .ticket-time {
+	font-size: 30px;
+	color: #666;
+}
+.search-results .tickets-item .ticket-info-from,
+.search-results .tickets-item .ticket-info-to {
+	width: 100px;
+}
+.search-results .tickets-item .ticket-direct {
+	width: 250px;
+	padding: 0 5px;
+	margin-top: 5px;
+}
+.search-results .tickets-item .ticket-direct p {
+	text-align: center;
+	margin: 0;
+}
+.search-results .tickets-item .direct-arrow {
+	border-top: 1px solid #acacac;
+}
+.search-results .tickets-item .direct-arrow .direct-point {
+	width: 12px;
+	height: 12px;
+	background-color: #959595;
+	display: inline-block;
+	position: relative;
+	top: -9px;
+	border-radius: 12px;
+}
+.search-results .tickets-item .direct-arrow .direct-point:last-child {
+	border-radius: 0;
+	left: 217px;
+	border: 7px solid #fff;
+	border-left-color: #959595;
+	border-right: 0;
+}
+.search-results .tickets-item .ticket-links {
+	float: right;
+	width: 200px;
+}
+.search-results .tickets-item .ticket-links .ticket-best-company {
+	text-align: center;
+	color: #a1a1a1;
+}
+.search-results .tickets-item .ticket-links .ticket-best-book {
+	text-align: center;
+}
+.search-results .tickets-item .ticket-links .ticket-best-book .btn {
+	width: 75%;
+	font-weight: 600;
+}
+.search-results .tickets-item .ticket-links .ticket-best-book .book-btn-title {
+	display: block;
+	text-transform: uppercase;
+}
+.search-results .tickets-item .ticket-links .ticket-other-link {
+	width: 75%;
+	margin: 0 auto;
+}
+.search-results .tickets-item .ticket-links .ticket-other-link a:hover {
+	text-decoration: none;
+}
+.search-results .tickets-item .ticket-links .ticket-other-link .book-other-title,
+.search-results .tickets-item .ticket-links .ticket-other-link .book-other-price {
+	width: 50%;
+	display: inline-block;
+	font-size: 12px;
 }
