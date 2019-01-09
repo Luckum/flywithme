@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/custom.js',
+        'js/jquery.twidget.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -47,7 +47,7 @@ return [
                 'terms-and-conditions' => 'page/terms-and-conditions',
                 'privacy-policy' => 'page/privacy-policy',
                 'contract' => 'page/contract',
-                'contacts' => 'page/contacts',
+                'contact' => 'site/contact',
                 'advantages' => 'page/advantages',
             ],
         ],

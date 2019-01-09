@@ -1,3 +1,7 @@
+$(document).on("click", ".ticket-action-button-deeplink", function() {
+    console.log($(this).attr('href'));
+    return false;
+});
 $(document).ready(function () {
     $(".passengers-detail-cnt").click(function () {
         $(".passengers-detail-options").toggle();

@@ -117,6 +117,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $this->layout = "@app/views/layouts/travel-main";
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {

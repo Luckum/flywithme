@@ -13,66 +13,11 @@ $template = '<div><p><span class="srch-frm-value-city">{{city}}</span>, ' .
 
 $script = <<<JS
     $(function () {
-        var dateFormat = "D. d M, yy",
-            from = $("#date-from")
-                .datepicker({
-                    changeMonth: false,
-                    numberOfMonths: 2,
-                    dateFormat: dateFormat,
-                    minDate: new Date(),
-                    showButtonPanel: true,
-                    currentText: "",
-                    closeText: "Close",
-                })
-                .on("change", function () {
-                    to.datepicker("option", "minDate", getDate(this));
-                    if ($(this).val().length > 0 && $(this).hasClass("error")) {
-                        $(this).removeClass("error");
-                        $(this).css({"border": "1px solid #ccc"});
-                        var obj = $("#date-from").parent().find(".search-frm-error");
-                        $(obj).hide();
-                    } else if ($(this).val().length == 0) {
-                        $(this).addClass("error");
-                        $(this).css({"border": "1px solid #f01c3d"});
-                        var obj = $("#date-from").parent().find(".search-frm-error");
-                        $(obj).show();
-                    }
-                })
-                
-            to = $("#date-to")
-                .datepicker({
-                    changeMonth: false,
-                    numberOfMonths: 2,
-                    dateFormat: dateFormat,
-                    minDate: new Date(),
-                    showButtonPanel: true,
-                    currentText: "",
-                    closeText: "Close"
-                })
-                .on("change", function () {
-                    from.datepicker("option", "maxDate", getDate(this));
-                    if ($(this).val().length > 0 && $(this).hasClass("error")) {
-                        $(this).removeClass("error");
-                        $(this).css({"border": "1px solid #ccc"});
-                        var obj = $("#date-to").parent().find(".search-frm-error");
-                        $(obj).hide();
-                    } else if ($(this).val().length == 0) {
-                        $(this).addClass("error");
-                        $(this).css({"border": "1px solid #f01c3d"});
-                        var obj = $("#date-to").parent().find(".search-frm-error");
-                        $(obj).show();
-                    }
-                });
-        function getDate(element) {
-            var date;
-            try {
-                date = $.datepicker.parseDate(dateFormat, element.value);
-            } catch(error) {
-                date = null;
-            }
-     
-            return date;
-        }
+        $('#twidget').twidget({
+            locale: 'ru',
+            marker: 78606,
+            type: 'avia'
+        });
     });
 JS;
 $this->registerJs($script, $this::POS_END);
@@ -228,3 +173,6 @@ $this->registerJs($script, $this::POS_END);
         <button class="btn btn-info btn-search" id="submit-search-frm-btn"><?= Yii::t('app', 'Search flights') ?></button>
     </div>
 </div>
+
+<div class="twidget-container" id="twidget"></div>
+<br><br>

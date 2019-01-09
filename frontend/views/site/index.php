@@ -50,7 +50,7 @@ $this->title = Yii::$app->name;
             </div>
             <div class="info-links pull-right">
                 <a href="<?= Url::to(['/about']) ?>"><?= Yii::t('app', 'About us') ?></a>
-                <a href="<?= Url::to(['/contacts']) ?>"><?= Yii::t('app', 'Contact us') ?></a>
+                <a href="<?= Url::to(['/contact']) ?>"><?= Yii::t('app', 'Contact us') ?></a>
                 <a href="<?= Url::to(['/advantages']) ?>"><?= Yii::t('app', 'More advantages') ?></a>
             </div>
         </div>

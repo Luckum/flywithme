@@ -75,7 +75,7 @@ AppAsset::register($this);
             <div class="footer-bottom-links">
                 <a class="footer-link" href="<?= Url::to(['/terms-and-conditions']) ?>"><?= Yii::t('app', 'Terms and conditions') ?></a>
                 <a class="footer-link" href="<?= Url::to(['/privacy-policy']) ?>"><?= Yii::t('app', 'Privacy policy') ?></a>
-                <a class="footer-link" href="<?= Url::to(['/contract']) ?>"><?= Yii::t('app', 'Contract') ?></a>
+                <a class="footer-link" href="<?= Url::to(['/advantages']) ?>"><?= Yii::t('app', 'Why FlySafe-24') ?></a>
             </div>
             <div class="footer-copy">
                 &copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?>. <?= Yii::$app->params['companyAddress'] ?>
