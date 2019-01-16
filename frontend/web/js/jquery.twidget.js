@@ -27,8 +27,8 @@
             locale: "en",
             marker: 1111,
             type: 'avia_hotel',
-            hide_logos: false,
-            open_in_new_tab: true,
+            hide_logos: true,
+            open_in_new_tab: false,
             default_origin: '',
             default_destination: '',
             lock_destination: false,
@@ -57,15 +57,15 @@
                 hotel_guests_caption_2: 'guests',
                 hotel_guests_caption_5: 'guests',
                 avia_passengers_select_adults: 'Adults',
-                avia_passengers_select_children: 'Children to 12<br>years',
+                avia_passengers_select_children: 'Children to 12 years',
                 hotel_guests_select_children: 'Children to 17<br>years',
                 hotel_guests_select_children_age: 'Age',
-                avia_passengers_select_infants: 'Infants to 2<br>years',
+                avia_passengers_select_infants: 'Infants to 2 years',
                 avia_passengers_economy_class: 'economy class',
                 avia_passengers_business_class: 'business class',
                 avia_passengers_business_class_checkbox: 'Business class',
                 avia_passengers_select_ready_button: 'Done',
-                avia_submit_button_text: 'Search',
+                avia_submit_button_text: 'Search flights',
                 hotel_submit_button_text: 'Search',
                 avia_all_airports_caption: 'All airports',
                 datepicker_language: 'en',
@@ -75,7 +75,7 @@
                 avia_logo_link: 'https://www.jetradar.com/',
                 avia_logo_content: '<div class="twidget-logo-image twidget-jetradar-logo-img" width="30" height="30"></div>jetradar',
                 hotel_logo_link: 'https://hotellook.com/',
-                avia_submit_domain : 'https://jetradar.com/searches/new'
+                avia_submit_domain : 'http://search.flysafe-24.com'
             }
         },
         // globals
@@ -187,7 +187,7 @@
 
             /* remove with_request input from jetradar form */
             if(this.settings.locale == 'en') {
-                container.find('input[name="with_request"]').remove();
+                //container.find('input[name="with_request"]').remove();
                 container.find('input[name="oneway"]').remove();
             }
 
