@@ -37,9 +37,7 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Настройки', 'items' => [
-            ['label' => 'Страны', 'url' => ['/country']],
-            ['label' => 'Города', 'url' => ['/city']],
-            ['label' => 'Аэропорты', 'url' => ['/airport']],
+            
         ]],
         ['label' => 'Статические страницы', 'url' => ['/page']],
     ];

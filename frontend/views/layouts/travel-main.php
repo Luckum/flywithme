@@ -46,13 +46,6 @@ AppAsset::register($this);
 <div class="wrap main-wrap">
     <div class="header-wide-container-results">
         <header>
-            <div class="header-menu-container">
-                <ul class="header-menu-list">
-                    <li><span class="glyphicon glyphicon-user header-menu-icon"></span><?= Yii::t('app', 'Log in or Sign up') ?>
-                    <li class="header-menu-separator"><span></span>
-                    <li><span class="glyphicon glyphicon-star header-menu-icon"></span><?= Yii::t('app', 'Enter promocode') ?>
-                </ul>
-            </div>
             <div class="header-logo-container">
                 <a href="/"><img src="/images/logo-3.png"></a>
             </div>
