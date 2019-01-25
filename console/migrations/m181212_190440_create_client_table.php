@@ -16,6 +16,10 @@ class m181212_190440_create_client_table extends Migration
             'id' => $this->primaryKey(),
             'first_name' => $this->string(100)->notNull(),
             'last_name' => $this->string(100)->notNull(),
+            'mid_name' => $this->string(100)->defaultValue(null),
+            'passport' => $this->string(20)->defaultValue(null),
+            'comment' => $this->text()->defaultValue(null),
+            'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP')
         ]);
     }
 

@@ -36,8 +36,9 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Настройки', 'items' => [
-            
+        ['label' => 'Клиенты', 'items' => [
+            ['label' => 'Список клиентов', 'url' => ['/client']],
+            ['label' => 'Промокоды', 'url' => ['/promocode']],
         ]],
         ['label' => 'Статические страницы', 'url' => ['/page']],
     ];

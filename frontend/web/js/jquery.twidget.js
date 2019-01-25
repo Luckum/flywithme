@@ -25,7 +25,7 @@
     var pluginName = "twidget",
         defaults = {
             locale: "en",
-            marker: 1111,
+            marker: 198799,
             type: 'avia_hotel',
             hide_logos: true,
             open_in_new_tab: false,
@@ -959,7 +959,7 @@
             '                            <!-- end passenger selection-->'+
             '                        </li>'+
             '                        <!-- partner marker -->'+
-            '                        <input type="hidden" name="marker" value="11111">'+
+            '                        <input type="hidden" name="marker" value="198799">'+
             '                        <!-- with_request flag -->'+
             '                        <input type="hidden" name="with_request" value="1">'+
             '                        <!-- submit button -->'+
@@ -1042,7 +1042,7 @@
             '                            </div>'+
             '                        </li>'+
             '                        <!-- partner marker -->'+
-            '                        <input type="hidden" name="marker" value="11111">'+
+            '                        <input type="hidden" name="marker" value="198799">'+
             '                        <!-- hotel search language -->'+
             '                        <input type="hidden" name="language" value="' + _this.settings.locale + '">'+
             '                        <!-- submit button -->'+

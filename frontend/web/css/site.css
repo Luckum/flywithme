@@ -199,7 +199,8 @@ a.desc:after {
 	background: rgba(0,0,0,0.6);
 	margin: 0 auto;
 }
-.search-frm-content .fly-types-switcher {
+.search-frm-content .fly-types-switcher,
+.search-frm-content .client-cnt {
 	display: table;
 	list-style: none;
 	border-spacing: 20px 0;
@@ -207,10 +208,19 @@ a.desc:after {
 	margin: 0;
 	margin-left: -5px;
 }
+.search-frm-content .client-cnt {
+	margin-bottom: 10px;
+}
 .search-frm-content .fly-types-switcher .fly-types-switcher-tab {
 	display: table-cell;
 	cursor: pointer;
 	color: rgba(255,255,255,0.5);
+}
+.search-frm-content .client-cnt .client-tab {
+	display: table-cell;
+	cursor: pointer;
+	color: #fff;
+	font-size: 12px;
 }
 .search-frm-content .fly-types-switcher .fly-types-switcher-tab.active {
 	color: #fff;
@@ -294,4 +304,21 @@ a.desc:after {
 }
 .header-wide-container-results .header-logo-container {
 	border-bottom: 0;
+}
+#client-data-modal .modal-header {
+	display: none;
+}
+#client-data-modal .modal-dialog {
+	margin: 100px auto;
+	width: 450px;
+}
+#client-data-modal .modal-body .client-input-fld {
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	line-height: 34px;
+	height: 34px;
+	padding: 0 37px 0 12px;
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 20px;
 }
