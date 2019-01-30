@@ -21,7 +21,8 @@ class ClientController extends BaseController
             if ($client) {
                 Yii::$app->response->cookies->add(new \yii\web\Cookie([
                     'name' => 'client',
-                    'value' => $client->id
+                    'value' => $client->id,
+                    'domain' => Yii::$app->params['site.cookies.domain'],
                 ]));
             }
         }
@@ -33,7 +34,8 @@ class ClientController extends BaseController
                 }
                 Yii::$app->response->cookies->add(new \yii\web\Cookie([
                     'name' => 'code',
-                    'value' => $code->id
+                    'value' => $code->id,
+                    'domain' => Yii::$app->params['site.cookies.domain'],
                 ]));
             }
         }

@@ -1,6 +1,6 @@
 $(document).on("click", ".ticket-action-button-deeplink", function() {
-    console.log($(this).attr('href'));
-    return false;
+    //console.log($(this).attr('href'));
+    return true;
 });
 $(document).ready(function () {
     $(".fly-types-switcher-tab").click(function () {

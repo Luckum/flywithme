@@ -24,21 +24,6 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:300%7CUbuntu:400%7CUbuntu:500%7CUbuntu:700"/>
-    <script type="text/javascript">
-        var globals = {
-            maxPassengersCount      : '<?= Yii::$app->params['maxPassengersCount'] ?>',
-            maxPassengersCountStr   : '<?= Yii::t('app', 'The maximum number of passengers is 9.') ?>',
-            maxChildrenCountStr     : '<?= Yii::t('app', 'Maximum of 2 children per adult.') ?>',
-            maxInfantsCountStr      : '<?= Yii::t('app', 'Maximum of 1 infant per adult.') ?>',
-            maxChildrenInfantsCountStr  : '<?= Yii::t('app', 'Maximum of 1 infant + 1 child per adult.') ?>',
-            adultStr                : '<?= Yii::t('app', 'adult') ?>',
-            adultsStr               : '<?= Yii::t('app', 'adults') ?>',
-            childStr                : '<?= Yii::t('app', 'child') ?>',
-            childrenStr             : '<?= Yii::t('app', 'children') ?>',
-            infantStr               : '<?= Yii::t('app', 'infant') ?>',
-            infantsStr              : '<?= Yii::t('app', 'infants') ?>',
-        };
-    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>
