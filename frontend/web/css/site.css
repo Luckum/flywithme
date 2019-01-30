@@ -322,3 +322,12 @@ a.desc:after {
 	width: 100%;
 	margin-bottom: 20px;
 }
+.site-index .item-cnt .item-img {
+	display: block;
+	margin: 0 auto 20px;
+}
+.site-index .info-cnt .item-cnt {
+	background: none;
+	box-shadow: none;
+	height: 200px;
+}

@@ -48,9 +48,6 @@ AppAsset::register($this);
     </div>
 
     <div class="wide-container">
-        <div id="wait" style="display: none;">
-            waiting
-        </div>
         <?= $content ?>
     </div>
 </div>
